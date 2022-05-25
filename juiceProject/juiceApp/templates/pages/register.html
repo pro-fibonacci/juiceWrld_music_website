@@ -1,0 +1,67 @@
+﻿{% extends 'pages/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- ##### Breadcumb Area Start ##### -->
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url('/static/img/bg-img/juice/j1.jpg');">
+	<div class="bradcumbContent">
+		<p>See what’s new</p>
+		<h2>Register</h2>
+	</div>
+</section>
+<!-- ##### Breadcumb Area End ##### -->
+
+<!-- ##### Login Area Start ##### -->
+<section class="login-area section-padding-100">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-8">
+				<div class="login-content">
+					<h3>Welcome Back</h3>
+					<!-- Login Form -->
+					<div class="container-fluid">
+						{% for message in messages %}
+						<h3 style="color: red;">{{ message }}</h3>
+						{% endfor %}
+					</div>
+					<div class="login-form">
+						<form action="#" method="POST">
+							{% csrf_token %}
+							<div class="form-group">
+								<label for="exampleInputEmail1">Username</label>
+								<input type="text" name="username" class="form-control" id="exampleInputEmail1"
+									aria-describedby="emailHelp" placeholder="Enter Username">
+								<small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll
+									never share your email with anyone else.</small>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Email address</label>
+								<input type="email" name="email" class="form-control" id="exampleInputEmail1"
+									aria-describedby="emailHelp" placeholder="Enter E-mail">
+								<small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll
+									never share your email with anyone else.</small>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Password</label>
+								<input type="password" name="password1" class="form-control" id="exampleInputPassword1"
+									placeholder="Password">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Re enter Password</label>
+								<input type="password" name="password2" class="form-control" id="exampleInputEmail1"
+									aria-describedby="emailHelp" placeholder="Re enter Password ">
+								<small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll
+									never share your email with anyone else.</small>
+							</div>
+							<button type="submit" class="btn oneMusic-btn mt-30">Register</button>
+						</form>
+						<h3>Already have an account ?</h3> <a href="{% url 'login' %}">Login </a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ##### Login Area End ##### -->
+{% endblock content %}
